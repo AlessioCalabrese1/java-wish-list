@@ -12,8 +12,10 @@ import java.util.TreeMap;
 
 public class Main {
 
+    //Con l'interfaccia Comparator possiamo comparae degli elementi quando ci viene chiesto negli appositi metodi delle collezioni
     public static class StringComparator implements Comparator<String>{
 
+        //Effettuiamo l'ovveride del metodo compare che ci permette di ordinare la collezione in base alle condizioni che inseriamo nel corpo
         @Override
         public int compare(String o1, String o2) {
             int count1 = 0;
@@ -39,7 +41,10 @@ public class Main {
             //     return -1;
             // }
             // return 0;
-
+            
+            //il riordinamento avviene in base al return del metodo compare, se il return è > 0 allora il secondo eleemnto 
+            //avrà la precedenza(ordinamento in ordine decrescente), se 
+            //è < di zero il primo elemento avrà la precedenza (ordinamento in ordine crescente), se è = a 0 non hanno precedenza
             return count2 - count1;
         }
     }
@@ -97,7 +102,11 @@ public class Main {
 
         TreeMap<String, Integer> map = new TreeMap<>();
         for (int i = 0; i < explode.length; i++) {
-            map.put(explode[i], i+1);
+            if (map.containsKey(explode[i])) {
+                map.put(explode[i], map.get(explode[i]) + 1);
+            }else{
+                map.put(explode[i], 1);
+            }
         }
         System.out.println("La mappatura dei singoli caratteri è apri ad: " + map);
     }
