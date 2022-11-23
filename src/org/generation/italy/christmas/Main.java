@@ -95,9 +95,9 @@ public class Main {
         strList.sort(null);
         System.out.println("La stringa senza caratteri doppioni in ordine alfabetico è: " + strList);
 
-        TreeMap<Integer, String> map = new TreeMap<>();
+        TreeMap<String, Integer> map = new TreeMap<>();
         for (int i = 0; i < explode.length; i++) {
-            map.put(i+1, explode[i]);
+            map.put(explode[i], i+1);
         }
         System.out.println("La mappatura dei singoli caratteri è apri ad: " + map);
     }
