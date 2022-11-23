@@ -3,10 +3,12 @@ package org.generation.italy.christmas;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.TreeMap;
 
 public class Main {
 
@@ -92,5 +94,11 @@ public class Main {
         }
         strList.sort(null);
         System.out.println("La stringa senza caratteri doppioni in ordine alfabetico è: " + strList);
+
+        TreeMap<Integer, String> map = new TreeMap<>();
+        for (int i = 0; i < explode.length; i++) {
+            map.put(i+1, explode[i]);
+        }
+        System.out.println("La mappatura dei singoli caratteri è apri ad: " + map);
     }
 }
