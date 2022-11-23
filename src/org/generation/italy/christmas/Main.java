@@ -1,9 +1,12 @@
 package org.generation.italy.christmas;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Main {
 
@@ -39,32 +42,55 @@ public class Main {
         }
     }
     public static void main(String[] args) {
-        Scanner sn = new Scanner(System.in);
-        List<String> wishList = new ArrayList<>();
-        boolean sentinel = true;
+        // Scanner sn = new Scanner(System.in);
+        // List<String> wishList = new ArrayList<>();
+        // boolean sentinel = true;
 
-        while (sentinel) {
-            System.out.println("La wish list ha " + wishList.size() + " elementi al suo interno!");
-            System.out.println("Si desidera inserire un nuovo elemento? (y/n)");
-            String choice = sn.next();
-            if (choice.equals("y")) {
-                System.out.println("Inserire il nuovo elemento nella lista:");
-                wishList.add(sn.next());
-                System.out.println("-------------------------------------");
-            }else if(choice.equals("n")){
-                System.out.println("La lista è stata salavata con successo, arrivederci!");
-                System.out.println("La lista risultante è:");
-                wishList.sort(null);
-                System.out.println(wishList);
-                sentinel = false;
-                System.out.println();
-                System.out.println("La lista ordinata per numero di vocali all'interno degli elemennti è uguale ad:");
-                wishList.sort(new StringComparator());
-                System.out.println(wishList);
-            }else{
-                System.out.println("Il valore inserito non è corretto! Riprovare");
-                System.out.println("-------------------------------------");
-            }
+        // while (sentinel) {
+        //     System.out.println("La wish list ha " + wishList.size() + " elementi al suo interno!");
+        //     System.out.println("Si desidera inserire un nuovo elemento? (y/n)");
+        //     String choice = sn.next();
+        //     if (choice.equals("y")) {
+        //         System.out.println("Inserire il nuovo elemento nella lista:");
+        //         wishList.add(sn.next());
+        //         System.out.println("-------------------------------------");
+        //     }else if(choice.equals("n")){
+        //         System.out.println("La lista è stata salavata con successo, arrivederci!");
+        //         System.out.println("La lista risultante è:");
+        //         wishList.sort(null);
+        //         System.out.println(wishList);
+        //         sentinel = false;
+        //         System.out.println();
+        //         System.out.println("La lista ordinata per numero di vocali all'interno degli elemennti è uguale ad:");
+        //         wishList.sort(new StringComparator());
+        //         System.out.println(wishList);
+        //     }else{
+        //         System.out.println("Il valore inserito non è corretto! Riprovare");
+        //         System.out.println("-------------------------------------");
+        //     }
+        // }
+
+
+        //-------------------------------------------------------------------------------
+
+        Scanner sn = new Scanner(System.in);
+        System.out.println("Inserire una stringa di caratteri:");
+        String str = sn.next();
+        System.out.println(str);
+        Set<String> set = new HashSet<>();
+        for (int i = 0; i < str.length(); i++) {
+            String[] explode = str.split("");
+            set.add(explode[i]);
         }
+        str = String.join("", set);
+        System.out.println("La stringa senza caratteri doppioni è: " + str);
+
+        List<String> strList = new ArrayList<>();
+        String[] explode = str.split("");
+        for (int i = 0; i < explode.length; i++) {
+            strList.add(explode[i]);
+        }
+        strList.sort(null);
+        System.out.println("La stringa senza caratteri doppioni in ordine alfabetico è: " + strList);
     }
 }
